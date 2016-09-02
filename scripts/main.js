@@ -58,12 +58,31 @@ for (var i = 0; i < json.length; i++){
       /*  if(attrName == "channels_befor" || attrName=="messing_apps"|| attrName=="family_information_channel"|| attrName=="friends_family"|| attrName=="information_sharing_channel"){
 
         }
-      */  var attrValue = ((obj[key]).toString()).split(" ");
+      */
+        var attrValue = ((obj[key]).toString()).split(" ");
         if(attrValue.length>1){
           dict[attrName] = attrValue;
         }
         else{
           dict[attrName] = obj[key];
+        }
+
+        if(attrName == "age"){
+          if (attrValue < 5) {
+              dict[attrName] = "0-5";
+          } else if (time < 12) {
+              dict[attrName] = "6-12";
+          } 
+          else if (time < 18) {
+              dict[attrName] = "13-18";
+          } 
+          else if (time < 55) {
+              dict[attrName] = "19-55";
+          } 
+
+          else {
+              dict[attrName] = "55+";
+          }
         }
     }
     data.push(dict);
@@ -84,7 +103,11 @@ var pieChart = dc.pieChart("#genderchart");
 pieChart.height(300).width(300).dimension(gender).group(genderGroup);
 
 //Request num 2
+var age = cf.dimension(function(d){ return d.age;});
+var ageGroup = age.group();
 
+var pieageChart = dc.pieageChart("#agechart");
+pieageChart.height(300).width(300).dimension(age).group(ageGroup);
 /*var topicsDim = cf.dimension(function(d){ return d.topics;});
 console.log(topicsDim);
 var topicsGroup = topicsDim.groupAll().reduce(reduceAddtopics, reduceRemovetopics, reduceInitial).value();
