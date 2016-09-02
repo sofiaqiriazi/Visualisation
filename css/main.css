@@ -170,9 +170,13 @@
     width:30%;
 }
 #age{
-    width:30%;
+    width:500px;
+    height: 500px;
 }
-
+#agechart{
+    width:500px;
+    height: 500px;
+}
 #gender{
     width:500px;
     height:500px;
