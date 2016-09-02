@@ -1,4 +1,4 @@
-function reduceAddtopics(p, v) {
+/*function reduceAddtopics(p, v) {
   if (v.topics[0] === "") return p;    // skip empty values
   v.topics.forEach (function(val, idx) {
      p[val] = (p[val] || 0) + 1; //increment counts
@@ -32,7 +32,7 @@ function reduceRemovechannels(p, v) {
 }
 function reduceInitial() {
   return {};  
-}
+}*/
 
 //parse json file and format into var data example
 /*var data = [
@@ -85,7 +85,7 @@ pieChart.height(300).width(300).dimension(gender).group(genderGroup);
 
 //Request num 2
 
-var topicsDim = cf.dimension(function(d){ return d.topics;});
+/*var topicsDim = cf.dimension(function(d){ return d.topics;});
 console.log(topicsDim);
 var topicsGroup = topicsDim.groupAll().reduce(reduceAddtopics, reduceRemovetopics, reduceInitial).value();
 // hack to make dc.js charts work
@@ -186,7 +186,7 @@ channelsChart.filterHandler (function (dimension, filters) {
             });
     return filters; 
     }
-);  
+);  */
 
 dc.renderAll();
 
