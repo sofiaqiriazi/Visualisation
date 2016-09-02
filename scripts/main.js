@@ -110,7 +110,7 @@ pieageChart.height(300).width(300).dimension(age).group(ageGroup);
 
 //Request num 3 
 var nationality = cf.dimension(function(d){ return d.nationality_background;});
-var nationalityGroup = nationailty.group();
+var nationalityGroup = nationality.group();
 
 var pienatChart = dc.pieChart("#nationalitychart");
 pienatChart.height(300).width(300).dimension(nationality).group(nationalityGroup);
