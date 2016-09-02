@@ -90,10 +90,9 @@ for (var i = 0; i < json.length; i++){
 console.log(data);
 
 
-//Request num 1 GENDER
-
-
 var cf = crossfilter(data);
+
+//Request num 1 GENDER
 
 
 var gender = cf.dimension(function(d){ return d.gender;});
@@ -102,12 +101,20 @@ var genderGroup = gender.group();
 var pieChart = dc.pieChart("#genderchart");
 pieChart.height(300).width(300).dimension(gender).group(genderGroup);
 
-//Request num 2
+//Request num 2 AGE
 var age = cf.dimension(function(d){ return d.age;});
 var ageGroup = age.group();
 
 var pieageChart = dc.pieChart("#agechart");
 pieageChart.height(300).width(300).dimension(age).group(ageGroup);
+
+//Request num 3 
+var nationality = cf.dimension(function(d){ return d.nationality_background;});
+var nationalityGroup = nationailty.group();
+
+var pienatChart = dc.pieChart("#nationalitychart");
+pienatChart.height(300).width(300).dimension(nationality).group(nationalityGroup);
+
 /*var topicsDim = cf.dimension(function(d){ return d.topics;});
 console.log(topicsDim);
 var topicsGroup = topicsDim.groupAll().reduce(reduceAddtopics, reduceRemovetopics, reduceInitial).value();

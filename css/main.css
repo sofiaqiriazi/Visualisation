@@ -186,7 +186,15 @@
     width:400px;
     height:400px;
 }
+#nationality{
+    width:500px;
+    height:500px;
+}
 
+#nationalitychart{
+    width:400px;
+    height:400px;
+}
 #channels{
     width:30%;
 }
