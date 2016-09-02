@@ -47,10 +47,8 @@ var jsonData = $.ajax({
           async: false
           }).responseText;
 
-console.log(jsonData);
 var data = [];
 var json = JSON.parse(jsonData);
-var prototype = ["age","gender","channels","listening_time","language"]
 //change json to data format
 for (var i = 0; i < json.length; i++){
     var obj = json[i];
@@ -71,16 +69,21 @@ for (var i = 0; i < json.length; i++){
     data.push(dict);
 }
 console.log(data);
-var data = [
-    {"key":"KEY-1","language":"al", "channels":["facebook","skype","whatsapp"],"topics":["family", "friends", "relatives"], "date":new Date("10/02/2012")},
-    {"key":"KEY-2","language":"gr", "channels":["facebook","github"],"topics":["family"], "date": new Date("10/05/2012")},
-    {"key":"KEY-3","language":"al", "channels":["facebook","github","whatsapp"],"topics":["friends"], "date":new Date("10/08/2012")},
-    {"key":"KEY-4","language":"sia", "channels":["facebook","skype","whatsapp"],"topics":["relatives", "friends"], "date":new Date("10/09/2012")},
-    {"key":"KEY-5","language":"en", "channels":["facebook","skype","github"],"topics":["family"], "date":new Date("10/09/2012")},
-    {"key":"KEY-5","language":"fr", "channels":["facebook","skype","whatsapp"],"topics": ["relatives","family"], "date":new Date("10/09/2012")}
-];
+
+
+//Request num 1 GENDER
+
 
 var cf = crossfilter(data);
+
+
+var gender = cf.dimension(function(d){ return d.gender;});
+var genderGroup = gender.group();
+
+var pieChart = dc.pieChart("#genderchart");
+pieChart.height(300).width(300).dimension(gender).group(genderGroup);
+
+//Request num 2
 
 var topicsDim = cf.dimension(function(d){ return d.topics;});
 console.log(topicsDim);
@@ -131,11 +134,7 @@ channelsGroup.top = function(count) {
 
 
 
-var language = cf.dimension(function(d){ return d.language;});
-var languageGroup = language.group();
 
-var pieChart = dc.pieChart("#chart2");
-pieChart.height(200).width(200).dimension(language).group(languageGroup);
 
 var barChart = dc.rowChart("#chart");
     
