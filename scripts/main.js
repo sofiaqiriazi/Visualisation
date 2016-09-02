@@ -68,15 +68,15 @@ for (var i = 0; i < json.length; i++){
         }
 
         if(attrName == "age"){
-          if (attrValue < 5) {
+          if (attrValue >0 && attrValue < 5) {
               dict[attrName] = "0-5";
-          } else if (attrValue < 12) {
+          } else if (attrValue > 5 && attrValue < 12) {
               dict[attrName] = "6-12";
           } 
-          else if (attrValue < 18) {
+          else if (attrValue > 12 && attrValue < 18) {
               dict[attrName] = "13-18";
           } 
-          else if (attrValue < 55) {
+          else if (attrValue > 18 && attrValue < 55) {
               dict[attrName] = "19-55";
           } 
 
