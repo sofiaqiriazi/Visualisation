@@ -106,7 +106,7 @@ pieChart.height(300).width(300).dimension(gender).group(genderGroup);
 var age = cf.dimension(function(d){ return d.age;});
 var ageGroup = age.group();
 
-var pieageChart = dc.pieageChart("#agechart");
+var pieageChart = dc.pieChart("#agechart");
 pieageChart.height(300).width(300).dimension(age).group(ageGroup);
 /*var topicsDim = cf.dimension(function(d){ return d.topics;});
 console.log(topicsDim);
