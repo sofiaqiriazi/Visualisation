@@ -174,7 +174,13 @@
 }
 
 #gender{
-    width:50%;
+    width:500px;
+    height:500px;
+}
+
+#genderchart{
+    width:400px;
+    height:400px;
 }
 
 #channels{
