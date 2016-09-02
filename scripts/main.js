@@ -108,12 +108,21 @@ var ageGroup = age.group();
 var pieageChart = dc.pieChart("#agechart");
 pieageChart.height(300).width(300).dimension(age).group(ageGroup);
 
-//Request num 3 
+//Request num 3 NATIONALITY
 var nationality = cf.dimension(function(d){ return d.nationality_background;});
 var nationalityGroup = nationality.group();
 
 var pienatChart = dc.pieChart("#nationalitychart");
 pienatChart.height(300).width(300).dimension(nationality).group(nationalityGroup);
+
+//Request num 3 NUMBER OF ENTRIES
+
+//Request num 4 information satisfaction percentage
+var infosatisf = cf.dimension(function(d){ return d.info_satisfaction;});
+var infosatisfGroup = infosatisf.group();
+
+var infosatChart = dc.pieChart("#infosatisfchart");
+infosatChart.height(300).width(300).dimension(infosatisf).group(infosatisfGroup);
 
 /*var topicsDim = cf.dimension(function(d){ return d.topics;});
 console.log(topicsDim);

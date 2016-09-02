@@ -195,6 +195,15 @@
     width:400px;
     height:400px;
 }
+#infosatisf{
+    width:500px;
+    height:500px;
+}
+
+#infosatisfchart{
+    width:400px;
+    height:400px;
+}
 #channels{
     width:30%;
 }
