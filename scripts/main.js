@@ -169,7 +169,7 @@ nosourcesGroup.all = function() {
 };
 
 
-nosoucesGroup.top = function(count) {
+nosourcesGroup.top = function(count) {
     var newObject = this.all();
      newObject.sort(function(a, b){return b.value - a.value});
     return newObject.slice(0, count);
