@@ -62,7 +62,7 @@ for (var i = 0; i < json.length; i++){
         }
       */
         var attrValue = ((obj[key]).toString()).split(" ");
-        if(attrValue.length>1){
+        if(attrValue.length>1 || attrName == "untrusted_sources"){
           dict[attrName] = attrValue;
         }
         else{
