@@ -121,14 +121,15 @@ document.getElementById("numofentries").innerHTML+= data.length;
 var infosatisf = cf.dimension(function(d){ return d.info_satisfaction;});
 var infosatisfGroup = infosatisf.group();
 
-var infosatChart = dc.pieChart("infosatisfchart");
+var infosatChart = dc.pieChart("#infosatisfchart");
 infosatChart.height(300).width(300).dimension(infosatisf).group(infosatisfGroup);
 
-/*var topicsDim = cf.dimension(function(d){ return d.topics;});
-console.log(topicsDim);
-var topicsGroup = topicsDim.groupAll().reduce(reduceAddtopics, reduceRemovetopics, reduceInitial).value();
+
+var sourcesDim = cf.dimension(function(d){ return d.trusted_sources;});
+console.log(sourcesDim);
+var sourcesGroup = sourcesDim.groupAll().reduce(reduceAddsources, reduceRemovesources, reduceInitial).value();
 // hack to make dc.js charts work
-topicsGroup.all = function() {
+sourcesGroup.all = function() {
   var newObject = [];
   for (var key in this) {
     if (this.hasOwnProperty(key) && key != "all" && key != "top") {
@@ -142,12 +143,13 @@ topicsGroup.all = function() {
 };
 
 
-topicsGroup.top = function(count) {
+sourcesGroup.top = function(count) {
     var newObject = this.all();
      newObject.sort(function(a, b){return b.value - a.value});
     return newObject.slice(0, count);
 };
 
+/*
 var channelsDim = cf.dimension(function(d){ return d.channels;});
 var channelsGroup = topicsDim.groupAll().reduce(reduceAddchannels, reduceRemovechannels, reduceInitial).value();
 // hack to make dc.js charts work
@@ -171,17 +173,17 @@ channelsGroup.top = function(count) {
     return newObject.slice(0, count);
 };
 
+*/
 
 
 
-
-var barChart = dc.rowChart("#chart");
+var barChart = dc.rowChart("#trustchart");
     
 barChart
     .renderLabel(true)
     .height(200)
-    .dimension(topicsDim)
-    .group(topicsGroup)
+    .dimension(sourcesDim)
+    .group(sourcesGroup)
     .cap(2)
     .ordering(function(d){return -d.value;})
     .xAxis().ticks(3);
@@ -201,6 +203,7 @@ barChart.filterHandler (function (dimension, filters) {
     }
 );
 
+/*
 var channelsChart = dc.rowChart("#chart3");
     
 channelsChart
