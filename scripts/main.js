@@ -321,6 +321,13 @@ unhcrchannelsChart.filterHandler (function (dimension, filters) {
     }
 );
 
+//Request num 9 Literacy
+var literacy = cf.dimension(function(d){ return d.literacy_1;});
+var literacyGroup = literacy.group();
+
+var literacyChart = dc.pieChart("#literacychart");
+literacyChart.height(300).width(300).dimension(literacy).group(literacyGroup);
+
 
 //Request num 10 Family Information Channel 
 var familychannelsDim = cf.dimension(function(d){ return d.family_information_channel;});
