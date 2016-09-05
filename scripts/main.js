@@ -327,6 +327,24 @@ var literacyGroup = literacy.group();
 
 var literacyChart = dc.pieChart("#literacychart");
 literacyChart.height(200).width(200).dimension(literacy).group(literacyGroup);
+      literacyChart
+        .width(320)
+        .height(320)
+        .radius(120)
+        .innerRadius(40)
+        .dimension(coreCount)
+        .title(function(d){return d.value;})
+        .group(coreCountGroup)
+        .label(function (d) {
+            if (goodYesNoPieChart.hasFilter() && !goodYesNoPieChart.hasFilter(d.key)) {
+                return d.key + '(0%)';
+            }
+            var label = d.key;
+            if (all.value()) {
+                label += '(' + Math.floor(d.value / all.value() * 100) + '%)';
+            }
+            return label;
+        })
 
 
 //Request num 10 Family Information Channel 
