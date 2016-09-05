@@ -32,6 +32,23 @@ function reduceRemovenosources(p, v) {
   return p;
    
 }
+
+function reduceAddunhcrchannels(p, v) {
+  if (v.unhcr_channels[0] === "") return p;    // skip empty values
+  v.unhcr_channels.forEach (function(val, idx) {
+     p[val] = (p[val] || 0) + 1; //increment counts
+  });
+  return p;
+}
+
+function reduceRemoveunhcrchannels(p, v) {
+  if (v.unhcr_channels[0] === "") return p;    // skip empty values
+  v.unhcr_channels.forEach (function(val, idx) {
+     p[val] = (p[val] || 0) - 1; //decrement counts
+  });
+  return p;
+   
+}
 function reduceInitial() {
   return {};  
 }
@@ -126,6 +143,7 @@ var infosatisfGroup = infosatisf.group();
 var infosatChart = dc.pieChart("#infosatisfchart");
 infosatChart.height(300).width(300).dimension(infosatisf).group(infosatisfGroup);
 
+//Request num 5 Trusted Information Sources
 
 var sourcesDim = cf.dimension(function(d){ return d.trusted_sources;});
 console.log(sourcesDim);
@@ -150,31 +168,6 @@ sourcesGroup.top = function(count) {
      newObject.sort(function(a, b){return b.value - a.value});
     return newObject.slice(0, count);
 };
-
-
-var nosourcesDim = cf.dimension(function(d){ return d.untrusted_sources;});
-var nosourcesGroup = nosourcesDim.groupAll().reduce(reduceAddnosources, reduceRemovenosources, reduceInitial).value();
-// hack to make dc.js charts work
-nosourcesGroup.all = function() {
-  var newObject = [];
-  for (var key in this) {
-    if (this.hasOwnProperty(key) && key != "all" && key != "top") {
-      newObject.push({
-        key: key,
-        value: this[key]
-      });
-    }
-  }
-  return newObject;
-};
-
-
-nosourcesGroup.top = function(count) {
-    var newObject = this.all();
-     newObject.sort(function(a, b){return b.value - a.value});
-    return newObject.slice(0, count);
-};
-
 
 
 var barChart = dc.rowChart("#trustchart");
@@ -204,6 +197,34 @@ barChart.filterHandler (function (dimension, filters) {
 );
 
 
+
+//Request num 7 Least Trusted Information Sources
+var nosourcesDim = cf.dimension(function(d){ return d.untrusted_sources;});
+var nosourcesGroup = nosourcesDim.groupAll().reduce(reduceAddnosources, reduceRemovenosources, reduceInitial).value();
+// hack to make dc.js charts work
+nosourcesGroup.all = function() {
+  var newObject = [];
+  for (var key in this) {
+    if (this.hasOwnProperty(key) && key != "all" && key != "top") {
+      newObject.push({
+        key: key,
+        value: this[key]
+      });
+    }
+  }
+  return newObject;
+};
+
+
+nosourcesGroup.top = function(count) {
+    var newObject = this.all();
+     newObject.sort(function(a, b){return b.value - a.value});
+    return newObject.slice(0, count);
+};
+
+
+
+
 var nosourcesChart = dc.rowChart("#notrustchart");
     
 nosourcesChart
@@ -229,6 +250,62 @@ nosourcesChart.filterHandler (function (dimension, filters) {
     return filters; 
     }
 );
+
+//Request num 8 UNHCR COMMUNICATION 
+var unhcrchannelsDim = cf.dimension(function(d){ return d.unhcr_channel;});
+var unhcrchannelsGroup = nosourcesDim.groupAll().reduce(reduceAddunhcrchannels, reduceRemoveunhcrchannels, reduceInitial).value();
+// hack to make dc.js charts work
+unhcrchannelsGroup.all = function() {
+  var newObject = [];
+  for (var key in this) {
+    if (this.hasOwnProperty(key) && key != "all" && key != "top") {
+      newObject.push({
+        key: key,
+        value: this[key]
+      });
+    }
+  }
+  return newObject;
+};
+
+
+unhcrchannelsGroup.top = function(count) {
+    var newObject = this.all();
+     newObject.sort(function(a, b){return b.value - a.value});
+    return newObject.slice(0, count);
+};
+
+
+
+
+var unhcrchannelsChart = dc.rowChart("#unhcrchart");
+    
+unhcrchannelsChart
+    .renderLabel(true)
+    .height(200)
+    .dimension(unhcrchannelsDim)
+    .group(unhcrchannelsGroup)
+    .cap(unhcrchannelsGroup.length)
+    .ordering(function(d){return -d.value;})
+    .xAxis().ticks(3);
+
+unhcrchannelsChart.filterHandler (function (dimension, filters) {
+       dimension.filter(null);   
+        if (filters.length === 0)
+            dimension.filter(null);
+        else
+            dimension.filterFunction(function (d) {
+                for (var i=0; i < d.length; i++) {
+                    if (filters.indexOf(d[i]) >= 0) return true;
+                }
+                return false;
+            });
+    return filters; 
+    }
+);
+
+
+
 
 dc.renderAll();
 
