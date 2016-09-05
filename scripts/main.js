@@ -116,7 +116,7 @@ var pienatChart = dc.pieChart("#nationalitychart");
 pienatChart.height(300).width(300).dimension(nationality).group(nationalityGroup);
 
 //Request num 3 NUMBER OF ENTRIES
-document.getElementById("numofentries").innerHTML+= data.length();
+document.getElementById("numofentries").innerHTML+= data.length;
 //Request num 4 information satisfaction percentage
 var infosatisf = cf.dimension(function(d){ return d.info_satisfaction;});
 var infosatisfGroup = infosatisf.group();
