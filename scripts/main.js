@@ -15,23 +15,23 @@ function reduceRemovesources(p, v) {
    
 }
 
-/*
-function reduceAddchannels(p, v) {
-  if (v.channels[0] === "") return p;    // skip empty values
-  v.channels.forEach (function(val, idx) {
+
+function reduceAddnosources(p, v) {
+  if (v.untrusted_sources[0] === "") return p;    // skip empty values
+  v.untrusted_sources.forEach (function(val, idx) {
      p[val] = (p[val] || 0) + 1; //increment counts
   });
   return p;
 }
 
-function reduceRemovechannels(p, v) {
-  if (v.channels[0] === "") return p;    // skip empty values
-  v.channels.forEach (function(val, idx) {
+function reduceRemovenosources(p, v) {
+  if (v.untrusted_sources[0] === "") return p;    // skip empty values
+  v.untrusted_sources.forEach (function(val, idx) {
      p[val] = (p[val] || 0) - 1; //decrement counts
   });
   return p;
    
-}*/
+}
 function reduceInitial() {
   return {};  
 }
@@ -151,11 +151,11 @@ sourcesGroup.top = function(count) {
     return newObject.slice(0, count);
 };
 
-/*
-var channelsDim = cf.dimension(function(d){ return d.channels;});
-var channelsGroup = topicsDim.groupAll().reduce(reduceAddchannels, reduceRemovechannels, reduceInitial).value();
+
+var nosourcesDim = cf.dimension(function(d){ return d.untrusted_sources;});
+var nosourcesGroup = nosourcesDim.groupAll().reduce(reduceAddnosources, reduceRemovenosources, reduceInitial).value();
 // hack to make dc.js charts work
-channelsGroup.all = function() {
+nosourcesGroup.all = function() {
   var newObject = [];
   for (var key in this) {
     if (this.hasOwnProperty(key) && key != "all" && key != "top") {
@@ -169,13 +169,11 @@ channelsGroup.all = function() {
 };
 
 
-channelsGroup.top = function(count) {
+nosoucesGroup.top = function(count) {
     var newObject = this.all();
      newObject.sort(function(a, b){return b.value - a.value});
     return newObject.slice(0, count);
 };
-
-*/
 
 
 
@@ -205,19 +203,19 @@ barChart.filterHandler (function (dimension, filters) {
     }
 );
 
-/*
-var channelsChart = dc.rowChart("#chart3");
+
+var nosourcesChart = dc.rowChart("#notrustsources");
     
-channelsChart
+nosourcesChart
     .renderLabel(true)
     .height(200)
-    .dimension(channelsDim)
-    .group(channelsGroup)
-    .cap(2)
+    .dimension(nosourcesDim)
+    .group(nosourcesGroup)
+    .cap(nosourcesGroup.length)
     .ordering(function(d){return -d.value;})
     .xAxis().ticks(3);
 
-channelsChart.filterHandler (function (dimension, filters) {
+nosourcesChart.filterHandler (function (dimension, filters) {
        dimension.filter(null);   
         if (filters.length === 0)
             dimension.filter(null);
@@ -230,7 +228,7 @@ channelsChart.filterHandler (function (dimension, filters) {
             });
     return filters; 
     }
-);  */
+);
 
 dc.renderAll();
 
