@@ -204,7 +204,7 @@ barChart.filterHandler (function (dimension, filters) {
 );
 
 
-var nosourcesChart = dc.rowChart("#notrustsources");
+var nosourcesChart = dc.rowChart("#notrustchart");
     
 nosourcesChart
     .renderLabel(true)
