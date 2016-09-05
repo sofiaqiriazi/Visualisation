@@ -6,7 +6,7 @@ function reduceAddsources(p, v) {
   return p;
 }
 
-function reduceRemovetopics(p, v) {
+function reduceRemovesources(p, v) {
   if (v.trusted_sources[0] === "") return p;    // skip empty values
   v.trusted_sources.forEach (function(val, idx) {
      p[val] = (p[val] || 0) - 1; //decrement counts
