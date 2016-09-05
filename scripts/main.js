@@ -49,6 +49,23 @@ function reduceRemoveunhcrchannels(p, v) {
   return p;
    
 }
+
+function reduceAddfamily(p, v) {
+  if (v.family_information_channel[0] === "") return p;    // skip empty values
+  v.family_information_channel.forEach (function(val, idx) {
+     p[val] = (p[val] || 0) + 1; //increment counts
+  });
+  return p;
+}
+
+function reduceRemovefamily(p, v) {
+  if (v.family_information_channel[0] === "") return p;    // skip empty values
+  v.family_information_channel.forEach (function(val, idx) {
+     p[val] = (p[val] || 0) - 1; //decrement counts
+  });
+  return p;
+   
+}
 function reduceInitial() {
   return {};  
 }
@@ -305,6 +322,58 @@ unhcrchannelsChart.filterHandler (function (dimension, filters) {
 );
 
 
+//Request num 10 Family Information Channel 
+var familychannelsDim = cf.dimension(function(d){ return d.family_information_channel;});
+var familychannelsGroup = nosourcesDim.groupAll().reduce(reduceAddfamily, reduceRemovefamily, reduceInitial).value();
+// hack to make dc.js charts work
+familychannelsGroup.all = function() {
+  var newObject = [];
+  for (var key in this) {
+    if (this.hasOwnProperty(key) && key != "all" && key != "top") {
+      newObject.push({
+        key: key,
+        value: this[key]
+      });
+    }
+  }
+  return newObject;
+};
+
+
+familychannelsGroup.top = function(count) {
+    var newObject = this.all();
+     newObject.sort(function(a, b){return b.value - a.value});
+    return newObject.slice(0, count);
+};
+
+
+
+
+var familychannelsChart = dc.rowChart("#familychart");
+    
+familychannelsChart
+    .renderLabel(true)
+    .height(200)
+    .dimension(familychannelsDim)
+    .group(familychannelsGroup)
+    .cap(familychannelsGroup.length)
+    .ordering(function(d){return -d.value;})
+    .xAxis().ticks(3);
+
+familychannelsChart.filterHandler (function (dimension, filters) {
+       dimension.filter(null);   
+        if (filters.length === 0)
+            dimension.filter(null);
+        else
+            dimension.filterFunction(function (d) {
+                for (var i=0; i < d.length; i++) {
+                    if (filters.indexOf(d[i]) >= 0) return true;
+                }
+                return false;
+            });
+    return filters; 
+    }
+);
 
 
 dc.renderAll();
