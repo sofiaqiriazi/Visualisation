@@ -186,7 +186,7 @@ barChart
     .height(200)
     .dimension(sourcesDim)
     .group(sourcesGroup)
-    .cap(2)
+    .cap(sourcesGroup.length)
     .ordering(function(d){return -d.value;})
     .xAxis().ticks(3);
 
