@@ -1,19 +1,21 @@
-/*function reduceAddtopics(p, v) {
-  if (v.topics[0] === "") return p;    // skip empty values
-  v.topics.forEach (function(val, idx) {
+function reduceAddsources(p, v) {
+  if (v.trusted_sources[0] === "") return p;    // skip empty values
+  v.trusted_sources.forEach (function(val, idx) {
      p[val] = (p[val] || 0) + 1; //increment counts
   });
   return p;
 }
 
 function reduceRemovetopics(p, v) {
-  if (v.topics[0] === "") return p;    // skip empty values
-  v.topics.forEach (function(val, idx) {
+  if (v.trusted_sources[0] === "") return p;    // skip empty values
+  v.trusted_sources.forEach (function(val, idx) {
      p[val] = (p[val] || 0) - 1; //decrement counts
   });
   return p;
    
 }
+
+/*
 function reduceAddchannels(p, v) {
   if (v.channels[0] === "") return p;    // skip empty values
   v.channels.forEach (function(val, idx) {
@@ -29,10 +31,10 @@ function reduceRemovechannels(p, v) {
   });
   return p;
    
-}
+}*/
 function reduceInitial() {
   return {};  
-}*/
+}
 
 //parse json file and format into var data example
 /*var data = [
