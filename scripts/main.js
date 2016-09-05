@@ -96,7 +96,7 @@ for (var i = 0; i < json.length; i++){
         }
       */
         var attrValue = ((obj[key]).toString()).split(" ");
-        if(attrValue.length>1 || attrName == "untrusted_sources" || attrName == "unhcr_channel"){
+        if(attrValue.length>1 || attrName == "untrusted_sources" || attrName == "unhcr_channel" || attrName == "family_information_channel"){
           dict[attrName] = attrValue;
         }
         else{
