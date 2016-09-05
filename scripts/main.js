@@ -34,16 +34,16 @@ function reduceRemovenosources(p, v) {
 }
 
 function reduceAddunhcrchannels(p, v) {
-  if (v.unhcr_channels[0] === "") return p;    // skip empty values
-  v.unhcr_channels.forEach (function(val, idx) {
+  if (v.unhcr_channel[0] === "") return p;    // skip empty values
+  v.unhcr_channel.forEach (function(val, idx) {
      p[val] = (p[val] || 0) + 1; //increment counts
   });
   return p;
 }
 
 function reduceRemoveunhcrchannels(p, v) {
-  if (v.unhcr_channels[0] === "") return p;    // skip empty values
-  v.unhcr_channels.forEach (function(val, idx) {
+  if (v.unhcr_channel[0] === "") return p;    // skip empty values
+  v.unhcr_channel.forEach (function(val, idx) {
      p[val] = (p[val] || 0) - 1; //decrement counts
   });
   return p;
@@ -79,7 +79,7 @@ for (var i = 0; i < json.length; i++){
         }
       */
         var attrValue = ((obj[key]).toString()).split(" ");
-        if(attrValue.length>1 || attrName == "untrusted_sources"){
+        if(attrValue.length>1 || attrName == "untrusted_sources" || attrName = "unhcr_channel"){
           dict[attrName] = attrValue;
         }
         else{
