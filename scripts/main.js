@@ -135,21 +135,21 @@ var gender = cf.dimension(function(d){ return d.gender;});
 var genderGroup = gender.group();
 
 var pieChart = dc.pieChart("#genderchart");
-pieChart.height(300).width(300).dimension(gender).group(genderGroup);
+pieChart.height(200).width(200).dimension(gender).group(genderGroup);
 
 //Request num 2 AGE
 var age = cf.dimension(function(d){ return d.age;});
 var ageGroup = age.group();
 
 var pieageChart = dc.pieChart("#agechart");
-pieageChart.height(300).width(300).dimension(age).group(ageGroup);
+pieageChart.height(200).width(200).dimension(age).group(ageGroup);
 
 //Request num 3 NATIONALITY
 var nationality = cf.dimension(function(d){ return d.nationality_background;});
 var nationalityGroup = nationality.group();
 
 var pienatChart = dc.pieChart("#nationalitychart");
-pienatChart.height(300).width(300).dimension(nationality).group(nationalityGroup);
+pienatChart.height(200).width(200).dimension(nationality).group(nationalityGroup);
 
 //Request num 3 NUMBER OF ENTRIES
 document.getElementById("numofentries").innerHTML+= data.length;
@@ -158,7 +158,7 @@ var infosatisf = cf.dimension(function(d){ return d.info_satisfaction;});
 var infosatisfGroup = infosatisf.group();
 
 var infosatChart = dc.pieChart("#infosatisfchart");
-infosatChart.height(300).width(300).dimension(infosatisf).group(infosatisfGroup);
+infosatChart.height(200).width(200).dimension(infosatisf).group(infosatisfGroup);
 
 //Request num 5 Trusted Information Sources
 
@@ -326,7 +326,7 @@ var literacy = cf.dimension(function(d){ return d.literacy_1;});
 var literacyGroup = literacy.group();
 
 var literacyChart = dc.pieChart("#literacychart");
-literacyChart.height(300).width(300).dimension(literacy).group(literacyGroup);
+literacyChart.height(200).width(200).dimension(literacy).group(literacyGroup);
 
 
 //Request num 10 Family Information Channel 
