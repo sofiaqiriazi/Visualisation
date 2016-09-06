@@ -192,7 +192,23 @@ body {
 .group { zoom:1; /* For IE 6/7 */ }
 
 #banner{
-    width:100%;
+    width:80%;
+    height: 200px;
     background-color: grey;
     font-color: white;
+    float:left;
 }
+
+#button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color:white;
+    background-color: #008CBA;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100px;
+    cursor: pointer;
+    float:right;
+}
+h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
