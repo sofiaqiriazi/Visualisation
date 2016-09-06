@@ -238,11 +238,15 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 #infosatisf{
     display: inlineblock;
     border:none;
+    width:10%;
+    height:200px;
 
 }
 #entries{
     display:inline-block;
     border:none;
+    width:10%;
+    height:200px;
 }
 #top{
     display: inline-block;
