@@ -8,8 +8,7 @@ h2 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; fo
 
 p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; text-align: justify; text-justify: inter-word; }
 .dc-chart {
-    float: none;
-
+    float: left;
 }
 .dc-chart rect.bar {
     stroke: none;
@@ -258,6 +257,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
     overflow: hidden;
     color: orange;
 }
+
 
 #top{
     display: inline-block;
