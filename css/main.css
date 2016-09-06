@@ -190,3 +190,9 @@ body {
 .group:after { content:""; display:table; }
 .group:after { clear:both;}
 .group { zoom:1; /* For IE 6/7 */ }
+
+#banner{
+    width:100%;
+    background-color: grey;
+    font-color: white;
+}
