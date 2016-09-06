@@ -257,15 +257,6 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
     overflow: hidden;
 }
 
-#entries {
-        background: orange;
-        width: 200px;
-        text-align: center;
-        padding-top: 63px;
-        padding-bottom: 63px;
-        height: 200px;
-        line-height: normal;
-}
 
 #top{
     display: inline-block;

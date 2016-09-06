@@ -159,7 +159,7 @@ var infosatisf = cf.dimension(function(d){ return d.info_satisfaction;});
 var infosatisfGroup = infosatisf.group();
 
 var infosatChart = dc.pieChart("#infosatisfchart");
-infosatChart.height(100).width(100).dimension(infosatisf).group(infosatisfGroup).innerRadius(50);
+infosatChart.height(150).width(150).dimension(infosatisf).group(infosatisfGroup).innerRadius(50);
 
 //Request num 5 Trusted Information Sources
 
