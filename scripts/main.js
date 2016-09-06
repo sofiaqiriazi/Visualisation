@@ -140,8 +140,8 @@ pieChart.width(320)
         .radius(120)
         .innerRadius(40)
         .dimension(gender)
-        .title("AGE")
-        .group(genderGroup);
+        .group(genderGroup)
+        .controlsUseVisibility(true);
 
 //Request num 2 AGE
 var age = cf.dimension(function(d){ return d.age;});
