@@ -236,9 +236,13 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 }
 
 #infosatisf{
-    display: block;
+    display: inlineblock;
     border:none;
 
+}
+#entries{
+    display:inline-block;
+    border:none;
 }
 #top{
     display: inline-block;
