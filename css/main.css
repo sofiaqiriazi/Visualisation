@@ -239,7 +239,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
     border:none;
     width:30%;
     height:200px;
-    float:left;
+    float:right;
 
 }
 #entries{
@@ -247,7 +247,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
     border:none;
     width:20%;
     height:200px;
-    float:left;
+    float:right;
 }
 #top{
     display: inline-block;
