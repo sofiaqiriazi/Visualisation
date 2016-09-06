@@ -134,8 +134,8 @@ var cf = crossfilter(data);
 var gender = cf.dimension(function(d){ return d.gender;});
 var genderGroup = gender.group();
 
-var pieChart = dc.pieChart("#genderchart");
-pieChart.width(320)
+var pie = dc.pieChart("#genderchart");
+pie.width(320)
         .height(320)
         .radius(120)
         .innerRadius(40)
