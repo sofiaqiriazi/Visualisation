@@ -255,6 +255,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
     height:200px;
     float:left;
     overflow: hidden;
+    color: orange;
 }
 
 
