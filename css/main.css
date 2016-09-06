@@ -190,6 +190,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 .col {
     display: block;
     float:left;
+    width: 23%;
     margin: 1% 0 1% 0.5%;
 }
 .col:first-child { margin-left: 0; }
@@ -197,6 +198,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 .col1 {
     display: block;
     float:left;
+    width: 23%
     margin: 1% 0 1% 0.5%;
 }
 .col1:first-child { margin-left: 0; }
