@@ -190,6 +190,13 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 }
 .col:first-child { margin-left: 0; }
 
+.col1 {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 0.5%;
+}
+.col1:first-child { margin-left: 0; }
+
 /*  GROUPING  */
 .group:before,
 .group:after { content:""; display:table; }
