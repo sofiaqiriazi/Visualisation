@@ -2,7 +2,7 @@ body {
    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    font-weight: 300;
 }
-h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 70px; font-weight: bold; letter-spacing: -1px; line-height: 1; width:50%; margin: none;}
+h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 70px; font-weight: bold; letter-spacing: -1px; line-height: 1; width:50%;}
 h2 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px;  text-align: center; }
 
 
@@ -234,20 +234,27 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
     height:200px;
 }
 
+#statistics{
+    overflow: hidden;
+    float: left;
+    height:200px;
+    width: 50%;
+}
+
 #infosatisf{
-    display: inline-block;
     border:none;
     width:30%;
     height:200px;
-    float:right;
+    float:left;
+    overflow: hidden;
 
 }
 #entries{
-    display:inline-block;
     border:none;
     width:20%;
     height:200px;
-    float:right;
+    float:left;
+    overflow: hidden;
 }
 #top{
     display: inline-block;
