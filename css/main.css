@@ -6,7 +6,7 @@ h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 70px; fo
 h2 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px;  text-align: center; }
 
 
-p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
+p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; text-align: justify; text-justify: inter-word; }
 .dc-chart {
     float: left;
 }
