@@ -210,7 +210,6 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 .group { zoom:1; /* For IE 6/7 */ }
 
 #banner{
-    display: inline-block;
     width:80%;
     height: 200px;
     background-color: grey;
@@ -238,7 +237,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 #infosatisf{
     display: inline-block;
     border:none;
-    width:10%;
+    width:30%;
     height:200px;
     float:left;
 
@@ -246,7 +245,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 #entries{
     display:inline-block;
     border:none;
-    width:10%;
+    width:20%;
     height:200px;
     float:left;
 }
