@@ -135,7 +135,7 @@ var gender = cf.dimension(function(d){ return d.gender;});
 var genderGroup = gender.group();
 
 var pie = dc.pieChart("#genderchart");
-pie.width(300).height(300).dimension(gender).group(genderGroup).innerRadius(50).controlsUseVisibility(true);
+pie.width(300).height(300).dimension(gender).group(genderGroup).innerRadius(50);
 
 
 //Request num 2 AGE
