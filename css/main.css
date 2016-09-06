@@ -236,10 +236,11 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 }
 
 #infosatisf{
-    display: inlineblock;
+    display: inline-block;
     border:none;
     width:10%;
     height:200px;
+    float:left;
 
 }
 #entries{
@@ -247,6 +248,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
     border:none;
     width:10%;
     height:200px;
+    float:left;
 }
 #top{
     display: inline-block;
