@@ -210,7 +210,7 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
 .group { zoom:1; /* For IE 6/7 */ }
 
 #banner{
-    display: block;
+    display: inline-block;
     width:80%;
     height: 200px;
     background-color: grey;
