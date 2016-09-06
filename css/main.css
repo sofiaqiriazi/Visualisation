@@ -181,6 +181,10 @@ p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; 
     padding: 0px;
     margin: 0px;
 }
+.row{
+    display: inline-block;
+    width:100%;
+}
 
 /*  COLUMN SETUP  */
 .col {
