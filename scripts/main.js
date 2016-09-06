@@ -139,7 +139,7 @@ pie
     .width(300)
     .height(300)
     .dimension(gender)
-    .group(genderGroup);
+    .group(genderGroup)
     .innerRadius(50)
     .controlsUseVisibility(true);
 
